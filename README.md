@@ -5,7 +5,7 @@
 ### What is the Thai Grocery Application?
 
 This client-side application, which is an ongoing project, uses Next.js to fetch
-the [Thai grocery API](https://github.com/krittiyaclark/thai-grocery-api) which
+the [Thai Grocery API](https://github.com/krittiyaclark/thai-grocery-api) which
 allows the user to search for Thai groceries in the app.
 
 Clone project
