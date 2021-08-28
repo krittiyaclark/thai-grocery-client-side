@@ -33,7 +33,7 @@ result.
 
 Take a look at these couple examples that I have in my own portfolio:
 
-**Thai grocery API:** https://github.com/krittiyaclark/thai-grocery-api
+**Thai Grocery API:** https://github.com/krittiyaclark/thai-grocery-api
 
 **Kissane Associates:**
 https://github.com/VT-Web-Development/gatsby-kissaneassociates
