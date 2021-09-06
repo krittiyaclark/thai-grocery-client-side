@@ -3,8 +3,8 @@
 ## Tech Stack: Next.js, Tailwind, and TypeScript
 
 This client-side application, which is an ongoing project, uses Next.js to fetch
-the Thai grocery API which allows the user to search for Thai groceries in the
-app.
+the [Thai grocery API](https://github.com/krittiyaclark/thai-grocery-api) which
+allows the user to search for Thai groceries in the app.
 
 Clone project
 
