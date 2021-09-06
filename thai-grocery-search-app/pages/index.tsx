@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import Layout from '../component/Layout'
+import Search from '../component/Search'
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
@@ -23,7 +24,7 @@ const Home: NextPage = () => {
 				</header>
 
 				<section className='w-6/12 grid grid-flow-row align-middle text-center'>
-					<input className='w-max:500 border-transparent' />
+					<Search />
 				</section>
 			</Layout>
 		</div>

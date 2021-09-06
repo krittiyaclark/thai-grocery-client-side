@@ -2,6 +2,7 @@
 exports.__esModule = true;
 var head_1 = require("next/head");
 var Layout_1 = require("../component/Layout");
+var Search_1 = require("../component/Search");
 var Home_module_css_1 = require("../styles/Home.module.css");
 var Home = function () {
     return (React.createElement("div", { className: Home_module_css_1["default"].container },
@@ -14,6 +15,6 @@ var Home = function () {
             React.createElement("header", { className: 'w-full grid grid-flow-row align-middle text-center' },
                 React.createElement("h1", { className: 'text-3xl' }, "Thai Grocery Search App")),
             React.createElement("section", { className: 'w-6/12 grid grid-flow-row align-middle text-center' },
-                React.createElement("input", { className: 'w-max:500 border-transparent' })))));
+                React.createElement(Search_1["default"], null)))));
 };
 exports["default"] = Home;

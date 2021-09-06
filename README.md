@@ -1,6 +1,6 @@
 # Thai grocery API - Client-Side
 
-## Tech Stack: Next.js, Bootstrap, and TypeScript
+## Tech Stack: Next.js, TypeScript, and Bootstrap
 
 This client-side application, which is an ongoing project, uses Next.js to fetch
 the [Thai grocery API](https://github.com/krittiyaclark/thai-grocery-api) which
