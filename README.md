@@ -16,7 +16,11 @@ First, run the development server:
 
 ```
 yarn
-# and
+```
+
+and
+
+```
 yarn dev
 ```
 
