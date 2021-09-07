@@ -1,6 +1,5 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 import Layout from '../component/Layout'
 import Search from '../component/Search'
 import styles from '../styles/Home.module.css'
@@ -18,12 +17,11 @@ const Home: NextPage = () => {
 			</Head>
 
 			<Layout>
-				<div className='relative bg-blue-500'></div>
-				<header className='w-full grid grid-flow-row align-middle text-center'>
-					<h1 className='text-3xl'>Thai Grocery Search App</h1>
+				<header className='align-middle text-center'>
+					<h1 className='text-lg'>Thai Grocery Search App</h1>
 				</header>
 
-				<section className='w-6/12 grid grid-flow-row align-middle text-center'>
+				<section className='py-5'>
 					<Search />
 				</section>
 			</Layout>

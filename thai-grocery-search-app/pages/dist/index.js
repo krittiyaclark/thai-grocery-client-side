@@ -11,10 +11,9 @@ var Home = function () {
             React.createElement("meta", { name: 'description', content: 'Thai Grocery Search App is a search application of Thai grocery with Thai grocery product with brand, info, ingredients, weight, and price.' }),
             React.createElement("link", { rel: 'icon', href: '/favicon.ico' })),
         React.createElement(Layout_1["default"], null,
-            React.createElement("div", { className: 'relative bg-blue-500' }),
-            React.createElement("header", { className: 'w-full grid grid-flow-row align-middle text-center' },
-                React.createElement("h1", { className: 'text-3xl' }, "Thai Grocery Search App")),
-            React.createElement("section", { className: 'w-6/12 grid grid-flow-row align-middle text-center' },
+            React.createElement("header", { className: 'align-middle text-center' },
+                React.createElement("h1", { className: 'text-lg' }, "Thai Grocery Search App")),
+            React.createElement("section", { className: 'py-5' },
                 React.createElement(Search_1["default"], null)))));
 };
 exports["default"] = Home;
