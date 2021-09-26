@@ -31,7 +31,7 @@ result.
 
 ## Examples:
 
-Take a look at these couple examples that I have in my own portfolio:
+Take a look at some more examples that I have in my own portfolio:
 
 **Thai Grocery API:** https://github.com/krittiyaclark/thai-grocery-api
 
