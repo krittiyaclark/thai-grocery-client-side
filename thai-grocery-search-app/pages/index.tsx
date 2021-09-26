@@ -1,10 +1,26 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import { Container, Row, Col } from 'react-bootstrap'
 import Layout from '../component/Layout'
 import Search from '../component/Search'
 import styles from '../styles/Home.module.css'
 
-const Home: NextPage = () => {
+interface Props {
+	children?: React.ReactNode
+	data?: object
+}
+
+export async function getServerSideProps() {
+	const res = await fetch(
+		`https://thai-grocery-api.herokuapp.com/api/thai-grocery-product`
+	)
+	const data = await res.json()
+
+	return { props: { data } }
+}
+
+const Home: NextPage = ({ data }: Props) => {
+	console.log(data)
 	return (
 		<div className={styles.container}>
 			<Head>
@@ -17,13 +33,25 @@ const Home: NextPage = () => {
 			</Head>
 
 			<Layout>
-				<header className='align-middle text-center'>
-					<h1 className='text-lg'>Thai Grocery Search App</h1>
-				</header>
+				<Container>
+					<Row>
+						<Col md={12}>
+							<header className='align-middle text-center'>
+								<h1 className='text-lg'>Thai Grocery Search App</h1>
+							</header>
+						</Col>
+					</Row>
+				</Container>
 
-				<section className='py-5'>
-					<Search />
-				</section>
+				<Container>
+					<Row>
+						<Col md={12}>
+							<section className='py-5'>
+								<Search />
+							</section>
+						</Col>
+					</Row>
+				</Container>
 			</Layout>
 		</div>
 	)
