@@ -1,76 +1,63 @@
-import { FC, useEffect, useState } from 'react'
-import { Row, Col, InputGroup, FormControl, Button } from 'react-bootstrap'
-import CardList from './CardList'
+import { FC, useEffect, useState } from "react";
+import { Row, Col, InputGroup, FormControl, Button } from "react-bootstrap";
+import CardList from "./CardList";
 
 interface Props {
-	children?: React.ReactNode
-	dataApi?: any
+  children?: React.ReactNode;
+  data: object;
+  event?: any;
+  filterData: object;
 }
 
-const Search: FC<Props> = () => {
-	const [search, setSearch] = useState('')
-	const [isLoading, setIsLoading] = useState(true)
-	const [errors, setErrors] = useState()
-	const [dataApi, setDataApi] = useState({})
+const Search: FC<Props> = ({ data }) => {
+  const [filterData, setFilterData] = useState("");
+  const [productEnter, setProductEnter] = useState("");
 
-	useEffect(() => {
-		const API_URL =
-			'https://thai-grocery-api.herokuapp.com/api/thai-grocery-product'
-		setIsLoading(true)
+  console.log(data);
 
-		async function getData() {
-			try {
-				const response = await fetch(API_URL)
-				const data = await response.json()
-				console.log(data)
-				setDataApi(data)
-				setIsLoading(false)
-			} catch (error) {
-				setErrors(errors)
-			} finally {
-				setIsLoading(false)
-			}
-		}
-		getData()
-	}, [])
+  const handleFilter = (event) => {
+    const searchProduct = event.target.value;
+    setProductEnter(searchProduct);
+    const newFilter = Object.entries(data).filter(([productName, data]) => {
+      console.log(data);
+      return data.info.toLowerCase().includes(searchProduct.toLowerCase());
+    });
 
-	// console.log(data)
-	console.log(isLoading)
-	console.log(dataApi)
+    searchProduct === "" ? setFilterData({}) : setFilterData(newFilter);
+  };
 
-	if (isLoading) {
-		return <p>Loading...</p>
-	}
-	const handleInput = () => {
-		console.log(search)
-	}
+  //   const clearInput = () => {
+  //     setFilterData([]);
+  //   };
 
-	return (
-		<>
-			<InputGroup className='mb-3'>
-				<FormControl
-					placeholder='Search for Thai Grocery Product'
-					aria-label="Recipient's username"
-					aria-describedby='basic-addon2'
-					onChange={(e) => setSearch(e.target.value)}
-				/>
-				<Button
-					variant='outline-secondary'
-					id='button-addon2'
-					onClick={() => handleInput()}>
-					Button
-				</Button>
-			</InputGroup>
+  return (
+    <>
+      <InputGroup className="mb-3">
+        <FormControl
+          placeholder="Search for Thai Grocery Product"
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+          value={productEnter}
+          onChange={(event) => setFilterData(handleFilter)}
+        />
+        <Button
+          variant="outline-secondary"
+          id="button-addon2"
+          //   onClick={() => handleInput()}
+        >
+          Button
+        </Button>
+      </InputGroup>
 
-			<Row>
-				<Col md={12}>
-					<section>
-						<CardList dataApi={dataApi} />
-					</section>
-				</Col>
-			</Row>
-		</>
-	)
-}
+      <Row>
+        <Col md={12}>
+          <section>
+            <CardList filterData={filterData} />
+          </section>
+        </Col>
+      </Row>
+    </>
+  );
+};
 
-export default Search
+export default Search;
