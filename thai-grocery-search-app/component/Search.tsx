@@ -1,29 +1,31 @@
-import { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { Row, Col, InputGroup, FormControl, Button } from "react-bootstrap";
 import CardList from "./CardList";
 
 interface Props {
   children?: React.ReactNode;
-  data: object;
+  data: [string, any][];
   event?: any;
   filterData: object;
 }
 
 const Search: FC<Props> = ({ data }) => {
-  const [filterData, setFilterData] = useState("");
+  const [filterData, setFilterData] = useState(data);
   const [productEnter, setProductEnter] = useState("");
 
   console.log(data);
 
-  const handleFilter = (event) => {
+  const handleFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
     const searchProduct = event.target.value;
+
     setProductEnter(searchProduct);
-    const newFilter = Object.entries(data).filter(([productName, data]) => {
+
+    const newFilter = data.filter(([productName, data]) => {
       console.log(data);
-      return data.info.toLowerCase().includes(searchProduct.toLowerCase());
+      return productName.toLowerCase().includes(searchProduct.toLowerCase());
     });
 
-    searchProduct === "" ? setFilterData({}) : setFilterData(newFilter);
+    return !newFilter.length ? setFilterData(data) : setFilterData(newFilter);
   };
 
   //   const clearInput = () => {
@@ -38,15 +40,8 @@ const Search: FC<Props> = ({ data }) => {
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
           value={productEnter}
-          onChange={(event) => setFilterData(handleFilter)}
+          onChange={handleFilter}
         />
-        <Button
-          variant="outline-secondary"
-          id="button-addon2"
-          //   onClick={() => handleInput()}
-        >
-          Button
-        </Button>
       </InputGroup>
 
       <Row>

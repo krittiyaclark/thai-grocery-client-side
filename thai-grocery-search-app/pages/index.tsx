@@ -3,14 +3,13 @@ import { FC } from "react";
 // import type { NextPage } from "next";
 import Head from "next/head";
 import { Container, Row, Col } from "react-bootstrap";
-import CardList from "../component/CardList";
 import Layout from "../component/Layout";
 import Search from "../component/Search";
 import styles from "../styles/Home.module.css";
 
 interface Props {
   children?: React.ReactNode;
-  data: object;
+  data?: object;
 }
 
 export async function getServerSideProps() {
@@ -19,7 +18,7 @@ export async function getServerSideProps() {
   );
   const data = await res.json();
 
-  return { props: { data } };
+  return { props: { data: Object.entries(data) } };
 }
 
 const Home: FC<Props> = ({ data }) => {
@@ -51,7 +50,6 @@ const Home: FC<Props> = ({ data }) => {
             <Col md={12}>
               <section className="py-5">
                 <Search data={data} />
-                {/* <CardList data={data} /> */}
               </section>
             </Col>
           </Row>

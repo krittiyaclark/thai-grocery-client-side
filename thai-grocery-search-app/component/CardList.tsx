@@ -5,8 +5,8 @@ import { Card, Button, Row, Col } from "react-bootstrap";
 interface Props {
   children?: React.ReactNode;
   item?: object;
-  data: object;
-  filterData: object;
+  data?: object;
+  filterData: [string, any][];
 }
 
 const CardList: FC<Props> = ({ filterData }) => {
@@ -16,14 +16,11 @@ const CardList: FC<Props> = ({ filterData }) => {
 
   return (
     <Row xs={1} md={2} className="g-4">
-      {Object.entries(filterData).map(([productName, data]) => {
-        console.log(productName, data);
-        console.log(data.info);
-
+      {filterData.map(([productName, data]) => {
         return (
           <Col key={productName}>
             <Card>
-              <Card.Img variant="top" src="holder.js/100px180" />
+              <Card.Img variant="top" src={data?.image} />
               <Card.Body>
                 <Card.Title>{productName}</Card.Title>
                 <Card.Text>{data?.info}</Card.Text>
