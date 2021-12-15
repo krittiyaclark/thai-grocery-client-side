@@ -5,7 +5,7 @@ import CardList from './CardList/CardList'
 interface Props {
 	children?: React.ReactNode
 	event?: any
-	data: [string, any][]
+	data: any[]
 }
 
 const Search: FC<Props> = ({ data }) => {
@@ -17,9 +17,11 @@ const Search: FC<Props> = ({ data }) => {
 
 		setProductEnter(searchProduct)
 
-		const newFilter = data?.filter(([productName, data]) => {
-			return productName.toLowerCase().includes(searchProduct.toLowerCase())
-		})
+		const newFilter =
+			data &&
+			data.filter(([productName, data]) => {
+				return productName.toLowerCase().includes(searchProduct.toLowerCase())
+			})
 
 		return newFilter ? setFilterData(newFilter) : setFilterData(data)
 	}
