@@ -1,0 +1,12 @@
+aside .image {
+	width: 50%;
+}
+
+.capitalize {
+	text-transform: capitalize;
+}
+
+.figcaption {
+	font-style: italic;
+	font-size: smaller;
+}

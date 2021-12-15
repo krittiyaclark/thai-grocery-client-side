@@ -1,0 +1,15 @@
+.cardImg {
+	width: 50%;
+}
+
+.strong {
+	font-weight: bolder;
+}
+
+.capitalize {
+	text-transform: capitalize;
+}
+
+.productTitle {
+	text-transform: capitalize;
+}

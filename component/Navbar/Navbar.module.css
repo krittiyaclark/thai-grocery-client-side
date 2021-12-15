@@ -1,0 +1,15 @@
+.background {
+	background: rgba(rgb(231, 228, 182), green, blue, alpha);
+}
+
+.btnPrimary {
+	color: #fff;
+	background-color: #cb3b14;
+	border-color: #cb3b14;
+}
+
+.btnPrimary:hover {
+	background-color: #cb3b14;
+	border-color: #bd3d19;
+	opacity: 0.8;
+}
